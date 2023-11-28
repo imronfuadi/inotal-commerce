@@ -1,0 +1,26 @@
+app:
+  currency: IDR
+  timezone: Asia/Jakarta
+  welcome-text: Hai you
+cloud:
+  api-key: ${CLOUD_KEY2}
+server:
+  port: 2323
+spring:
+  datasource:
+    hikari:
+      connection-timeout: 60000
+      idle-timeout: 60000
+      max-lifetime: 1800000
+      maximum-pool-size: 10
+    url: jdbc:postgresql://127.0.0.1/db_inotal_commerce
+    username: imron
+    password: imron
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true

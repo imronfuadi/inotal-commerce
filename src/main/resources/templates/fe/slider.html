@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="slider">
+	<section class="pt-0 poster-section">
+		<div class="poster-image slider-for custome-arrow classic-arrow">
+			<div th:each="s :${slider}">
+				<img th:src="${s.photosImagePath}"
+					class="img-fluid blur-up lazyload" alt="">
+			</div>
+		</div>
+		<div class="slider-nav image-show">
+			<div th:each="s :${slider}">
+				<div class="poster-img" >
+					<img th:src="${s.photosImagePath}"
+						class="img-fluid blur-up lazyload" alt="" style="width: 130px; height: 150px;">
+					<div class="overlay-color">
+						<i class="fas fa-plus theme-color"></i>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="left-side-contain">
+			<div class="banner-left">
+				<h4>
+					Discount up to <span class="theme-color">12%</span><br>For Bundling
+				</h4>
+				<h1>
+					New Latest <span>Product</span>
+				</h1>
+				<!--<p>
+					BUY ONE GET ONE <span class="theme-color">FREE</span>
+				</p>-->
+				<h2>
+					<span class="theme-color">Rp. 15.000 </span>
+				</h2>
+				<!--<p class="poster-details mb-0">Lorem Ipsum is simply dummy text
+					of the printing and typesetting industry.</p>-->
+			</div>
+		</div>
+
+		<div class="right-side-contain">
+			<div class="social-image">
+				<h6>Facebook</h6>
+			</div>
+
+			<div class="social-image">
+				<h6>Instagram</h6>
+			</div>
+
+			<div class="social-image">
+				<h6>Twitter</h6>
+			</div>
+		</div>
+	</section>
+</div>
+</html>
