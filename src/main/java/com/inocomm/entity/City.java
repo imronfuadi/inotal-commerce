@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Entity
@@ -20,6 +21,7 @@ public class City {
 	private Long id;
 	
 	@Column(name = "name", nullable = false)
+	@NotBlank(message = "Nama Kota Harus Diisi")
 	private String name;
 	
 	@ManyToOne

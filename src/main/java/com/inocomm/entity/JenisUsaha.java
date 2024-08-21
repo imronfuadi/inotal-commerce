@@ -4,22 +4,19 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import jakarta.persistence.Id;
 
 @Entity
 @Data
-@Table(name = "province")
-public class Province {
+@Table(name = "jenis_usaha")
+public class JenisUsaha {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long Id;
 	
-	@Column(name = "name", nullable = false)
-	@NotBlank(message = "Nama Provinsi Harus Diisi")
-	private String name;
+	@Column(name = "nama_jenis_usaha")
+	private String namaJenisUsaha;
 }

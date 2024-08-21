@@ -16,6 +16,7 @@ spring:
     url: jdbc:postgresql://127.0.0.1/db_inotal_commerce
     username: imron
     password: imron
+    driver-class-name: org.postgresql.Driver
   jpa:
     database: POSTGRESQL
     hibernate:

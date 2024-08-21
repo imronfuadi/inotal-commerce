@@ -28,8 +28,8 @@
 				</div>
 
 				<!-- New Product Add Start -->
-				<form th:action="@{/product/submit}" th:object="${addNewProduct}"
-					method="post" enctype="multipart/form-data">
+				<form th:action="@{/product/submit}" th:object="${addNewProduct}" method="post"
+					enctype="multipart/form-data">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-12">
@@ -66,11 +66,24 @@
 																Quantity</label>
 															<div class="col-sm-10">
 																<input class="form-control" type="text"
-																	placeholder="Product Quantity" th:field="*{quantity}"
-																	id="quantity">
+																	placeholder="Product Quantity"
+																	th:field="*{quantity}" id="quantity">
 															</div>
 														</div>
-
+														<div class="mb-4 row align-items-center">
+															<label
+																class="col-sm-2 col-form-label form-label-title">Category</label>
+															<div class="col-sm-10">
+																<select class="js-example-basic-single w-100"
+																	th:field="*{categories}">
+																	<option disabled="disabled" selected="selected"
+																		value="">Category Menu</option>
+																	<option th:each="category : ${categories}"
+																		th:value="${category.id}"
+																		th:text="${category.name}"></option>
+																</select>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -111,10 +124,12 @@
 												<div class="theme-form theme-form-2 mega-form">
 													<div class="row">
 														<div class="mb-4 row align-items-center">
-															<label class="col-sm-2 col-form-label form-label-title">Images</label>
+															<label
+																class="col-sm-2 col-form-label form-label-title">Images</label>
 															<div class="col-sm-10">
-																<input class="form-control form-choose" type="file" name="image"
-																	id="formFileMultiple" accept="image/png, image/jpeg" multiple>
+																<input class="form-control form-choose" type="file"
+																	name="image" id="formFileMultiple"
+																	accept="image/png, image/jpeg" multiple>
 															</div>
 														</div>
 
@@ -139,7 +154,7 @@
 																<hr>
 																<a th:href="@{/product/list}"
 																	class="btn btn-primary float-left"><i
-																	class="fas fa-angle-left">Back</i></a>
+																		class="fas fa-angle-left">Back</i></a>
 															</div>
 														</div>
 													</div>

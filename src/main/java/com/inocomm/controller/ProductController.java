@@ -20,8 +20,10 @@ import org.springframework.util.StringUtils;
 import com.inocomm.dto.ProductCreateRequestDTO;
 import com.inocomm.dto.ProductListResponseDTO;
 import com.inocomm.dto.ProductUpdateRequestDTO;
+import com.inocomm.entity.Categories;
 import com.inocomm.entity.Product;
 import com.inocomm.service.ProductService;
+import com.inocomm.service.impl.CategoriesServiceImpl;
 import com.inocomm.service.impl.ProductServiceImpl;
 import com.inocomm.util.FileUploadUtil;
 
@@ -37,6 +39,9 @@ public class ProductController {
 	@Autowired
 	private final ProductServiceImpl productServiceImpl;
 
+	@Autowired
+	private final CategoriesServiceImpl categoriesServiceImpl;
+
 	@GetMapping("/list")
 	public String findProductList(Model model) {
 		model.addAttribute("products", productServiceImpl.findProductListDetail());
@@ -45,8 +50,16 @@ public class ProductController {
 
 	@GetMapping(value = "/new")
 	public String loadProductForm(Model model) {
-		Product product = new Product();
-		model.addAttribute("addNewProduct", product);
+//		Product product = new Product();
+//		model.addAttribute("addNewProduct", product);
+//		List<Categories> categories =  categoriesServiceImpl.findAllCategories();
+//		model.addAttribute("categories",categories);
+//		System.out.println(categories);
+//		return "be/product/addNewProduct";
+		Product productForm = new Product();
+		List<Categories> categories = categoriesServiceImpl.findAllCategories();
+		model.addAttribute("addNewProduct", productForm);
+		model.addAttribute("categories", categories);
 		return "be/product/addNewProduct";
 	}
 

@@ -77,6 +77,9 @@
 																<input class="form-control" type="text"
 																	placeholder="Subdistrict" th:field="*{name}"
 																	id="name" name="name">
+																<div th:if="${#fields.hasErrors('name')}"
+																	th:errors="*{name}" class="alert alert-danger">
+																</div>
 															</div>
 														</div>
 													</div>

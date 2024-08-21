@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,7 @@ import com.inocomm.service.impl.CityServiceImpl;
 import com.inocomm.service.impl.ProvinceServiceImpl;
 import com.inocomm.service.impl.SubdistrictServiceImpl;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 @Controller
@@ -51,7 +54,10 @@ public class SubdistrictController {
 	}
 	
 	@PostMapping("/submit")
-	public String saveSubdistrict(@RequestParam("name") String name, @RequestParam("province") Long province, @RequestParam("city") Long city) {
+	public String saveSubdistrict(@Valid @ModelAttribute("addNewSubdistrict") Subdistrict subdistrict, BindingResult result, Model model, @RequestParam("name") String name, @RequestParam("province") Long province, @RequestParam("city") Long city) {
+		if(result.hasErrors()) {
+			return "be/region/subdistrict/addSubdistrict";
+		}
 		subdistrictServiceImpl.saveSubdistrict(name, province, city);
 		return "redirect:/subdistrict/list";
 	}

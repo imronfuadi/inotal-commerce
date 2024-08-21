@@ -28,8 +28,8 @@
 				</div>
 
 				<!-- New Product Add Start -->
-				<form th:action="@{/province/submit}" th:object="${addNewProvince}"
-					method="post" enctype="multipart/form-data">
+				<form th:action="@{/province/submit}" th:object="${addNewProvince}" method="post"
+					enctype="multipart/form-data">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-12">
@@ -44,11 +44,14 @@
 												<div class="theme-form theme-form-2 mega-form">
 													<div class="row">
 														<div class="mb-4 row align-items-center">
-															<label class="form-label-title col-sm-2 mb-0">Province</label>
+															<label
+																class="form-label-title col-sm-2 mb-0">Province</label>
 															<div class="col-sm-10">
 																<input class="form-control" type="text"
-																	placeholder="Province" th:field="*{name}"
-																	id="name">
+																	placeholder="Province" th:field="*{name}" id="name"
+																	name="name">
+																<div th:if="${#fields.hasErrors('name')}"
+																	th:errors="*{name}" class="alert alert-danger"></div>
 															</div>
 														</div>
 													</div>
@@ -70,7 +73,7 @@
 																<hr>
 																<a th:href="@{/product/list}"
 																	class="btn btn-primary float-left"><i
-																	class="fas fa-angle-left">Back</i></a>
+																		class="fas fa-angle-left">Back</i></a>
 															</div>
 														</div>
 													</div>
